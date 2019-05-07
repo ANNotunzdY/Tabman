@@ -200,7 +200,7 @@ final class BarInteractiveOverlayView: UIView {
             #if swift(>=5.0)
             barView = bar
             #else
-            barView = bar as! UIView
+            barView = bar as UIView
             #endif
             let frame = barView.superview!.convert(barView.frame, to: viewController.view)
             

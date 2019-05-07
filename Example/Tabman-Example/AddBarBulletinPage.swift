@@ -93,7 +93,7 @@ final class AddBarBulletinPage: BLTNPageItem {
         #if swift(>=5.0)
         barView = sender.bar
         #else
-        barView = sender.bar as! UIView
+        barView = sender.bar as UIView
         #endif
         tabViewController.addBarInteractively(makeBar(for: type),
                                               dataSource: barDataSource,

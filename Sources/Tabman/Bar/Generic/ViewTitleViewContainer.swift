@@ -18,7 +18,7 @@ class ViewTitleViewContainer: UIView {
         #if swift(>=4.2)
         return UIView.layoutFittingExpandedSize
         #else
-        return UILayoutFittingExpandedSize
+        return UIView.layoutFittingExpandedSize
         #endif
     }
     

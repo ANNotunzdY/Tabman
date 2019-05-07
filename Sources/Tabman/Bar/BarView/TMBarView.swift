@@ -173,7 +173,7 @@ open class TMBarView<Layout: TMBarLayout, Button: TMBarButton, Indicator: TMBarI
             #if swift(>=4.2)
             accessibilityTraits = [.tabBar]
             #else
-            accessibilityTraits = UIAccessibilityTraitTabBar
+            accessibilityTraits = UIAccessibilityTraits.tabBar
             #endif
         }
         layout(in: self)

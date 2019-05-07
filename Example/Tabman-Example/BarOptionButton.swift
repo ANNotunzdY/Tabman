@@ -65,7 +65,7 @@ class BarOptionButton: UIButton {
         #if swift(>=5.0)
         barView = bar
         #else
-        barView = bar as! UIView
+        barView = bar as UIView
         #endif
         barContainer.addSubview(barView)
         barView.translatesAutoresizingMaskIntoConstraints = false

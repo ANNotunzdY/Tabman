@@ -47,7 +47,7 @@ internal class AnimateableLabel: UIView {
             #if swift(>=4.2)
             textLayer.alignmentMode = caTextLayerAlignmentMode(from: textAlignment) ?? .left
             #else
-            textLayer.alignmentMode = caTextLayerAlignmentMode(from: textAlignment) ?? kCAAlignmentLeft
+            textLayer.alignmentMode = convertToCATextLayerAlignmentMode(caTextLayerAlignmentMode(from: textAlignment) ?? kCAAlignmentLeft)
             #endif
         }
     }
@@ -69,7 +69,7 @@ internal class AnimateableLabel: UIView {
         #if swift(>=4.2)
         textLayer.truncationMode = .end
         #else
-        textLayer.truncationMode = kCATruncationEnd
+        textLayer.truncationMode = CATextLayerTruncationMode.end
         #endif
         textLayer.contentsScale = UIScreen.main.scale
         layer.addSublayer(textLayer)
@@ -109,16 +109,26 @@ private extension AnimateableLabel {
         }
         switch alignment {
         case .center:
-            return kCAAlignmentCenter
+            return convertFromCATextLayerAlignmentMode(CATextLayerAlignmentMode.center)
         case .justified:
-            return kCAAlignmentJustified
+            return convertFromCATextLayerAlignmentMode(CATextLayerAlignmentMode.justified)
         case .left:
-            return kCAAlignmentLeft
+            return convertFromCATextLayerAlignmentMode(CATextLayerAlignmentMode.left)
         case .natural:
-            return kCAAlignmentNatural
+            return convertFromCATextLayerAlignmentMode(CATextLayerAlignmentMode.natural)
         case .right:
-            return kCAAlignmentRight
+            return convertFromCATextLayerAlignmentMode(CATextLayerAlignmentMode.right)
         }
     }
     #endif
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToCATextLayerAlignmentMode(_ input: String) -> CATextLayerAlignmentMode {
+	return CATextLayerAlignmentMode(rawValue: input)
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromCATextLayerAlignmentMode(_ input: CATextLayerAlignmentMode) -> String {
+	return input.rawValue
 }

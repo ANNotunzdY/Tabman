@@ -110,7 +110,7 @@ open class TMBarButton: UIControl {
         #if swift(>=4.2)
         accessibilityTraits = [.button]
         #else
-        accessibilityTraits = UIAccessibilityTraitButton
+        accessibilityTraits = UIAccessibilityTraits.button
         #endif
         isAccessibilityElement = true
     }
@@ -187,13 +187,13 @@ open class TMBarButton: UIControl {
             #if swift(>=4.2)
             accessibilityTraits.insert(.selected)
             #else
-            accessibilityTraits = UIAccessibilityTraitButton | UIAccessibilityTraitSelected
+            accessibilityTraits = UIAccessibilityTraits.button | UIAccessibilityTraits.selected
             #endif
         case .unselected:
             #if swift(>=4.2)
             accessibilityTraits.remove(.selected)
             #else
-            accessibilityTraits = UIAccessibilityTraitButton
+            accessibilityTraits = UIAccessibilityTraits.button
             #endif
         default:
             break
